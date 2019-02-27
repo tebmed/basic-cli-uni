@@ -6,6 +6,6 @@ public interface EducationActionFactory {
 
 	public AddTeacherAction createTeacherAction(@Assisted("teacherName") String teacherName);
 
-
+	public AddStudentAction createStudentAction(@Assisted("studentName") String studentName);
 
 }

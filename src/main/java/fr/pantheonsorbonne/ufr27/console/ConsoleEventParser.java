@@ -15,15 +15,13 @@ import fr.pantheonsorbonne.ufr27.action.EducationActionFactory;
 import fr.pantheonsorbonne.ufr27.exception.EducationException;
 import fr.pantheonsorbonne.ufr27.exception.InvalidCommandException;
 
-
 public class ConsoleEventParser {
 
 	@Inject
 	private EducationActionFactory factory;
 
 	public EducationAction parse(String command) throws EducationException {
-		
-		
+
 		Matcher matcher = null;
 		{
 			Pattern pattern = Pattern.compile("^add teacher (.*)$");
@@ -31,7 +29,14 @@ public class ConsoleEventParser {
 				return factory.createTeacherAction(matcher.group(1));
 			}
 		}
-	
+
+		{
+			Pattern pattern = Pattern.compile("^add student (.*)$");
+
+			if ((matcher = pattern.matcher(command)).matches()) {
+				return factory.createStudentAction(matcher.group(1));
+			}
+		}
 
 		throw new InvalidCommandException(command);
 
