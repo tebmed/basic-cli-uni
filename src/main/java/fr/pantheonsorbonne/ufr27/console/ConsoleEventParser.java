@@ -61,6 +61,14 @@ public class ConsoleEventParser {
 				return factory.registerCourseForStudentAction(matcher.group(1), matcher.group(2));
 			}
 		}
+		
+		{
+			Pattern pattern = Pattern.compile("^start ([^ ]+)");
+			if ((matcher = pattern.matcher(command)).matches()) {
+				return factory.startCourse(matcher.group(1));
+			}
+		}
+		
 
 		throw new InvalidCommandException(command);
 

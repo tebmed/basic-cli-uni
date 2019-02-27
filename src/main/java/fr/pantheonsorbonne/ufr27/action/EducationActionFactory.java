@@ -15,4 +15,6 @@ public interface EducationActionFactory {
 
 	public SetStudentLearnCourseAction registerCourseForStudentAction(@Assisted("studentName") String studentName,
 			@Assisted("courseName") String courseName);
+
+	public StartCourseAction startCourse(@Assisted("courseName") String courseName);
 }
