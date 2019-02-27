@@ -6,7 +6,6 @@ public class Course extends EducationEntity {
 		super(name);
 	}
 
-
 	@Override
 	public int hashCode() {
 		return this.getName().hashCode();
@@ -20,5 +19,16 @@ public class Course extends EducationEntity {
 		} else {
 			return false;
 		}
+	}
+
+	private boolean taught = false;
+
+	public void starts() {
+		taught = true;
+
+	}
+
+	public boolean isTaught() {
+		return this.taught;
 	}
 }
