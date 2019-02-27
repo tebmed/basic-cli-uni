@@ -9,4 +9,7 @@ public interface EducationActionFactory {
 	public AddStudentAction createStudentAction(@Assisted("studentName") String studentName);
 
 	public AddCourseAction createCourseAction(@Assisted("courseName") String courseName);
+	
+	public SetTeacherTeachesCourseAction registerCourseForTeacherAction(@Assisted("teacherName") String teacherName,
+			@Assisted("courseName") String courseName);
 }
