@@ -37,6 +37,14 @@ public class ConsoleEventParser {
 				return factory.createStudentAction(matcher.group(1));
 			}
 		}
+		
+		{
+			Pattern pattern = Pattern.compile("^add course (.*)$");
+
+			if ((matcher = pattern.matcher(command)).matches()) {
+				return factory.createCourseAction(matcher.group(1));
+			}
+		}
 
 		throw new InvalidCommandException(command);
 
