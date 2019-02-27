@@ -11,6 +11,7 @@ import com.google.inject.assistedinject.FactoryModuleBuilder;
 import fr.pantheonsorbonne.ufr27.action.AddTeacherAction;
 import fr.pantheonsorbonne.ufr27.action.EducationAction;
 import fr.pantheonsorbonne.ufr27.action.EducationActionFactory;
+import fr.pantheonsorbonne.ufr27.entity.Student;
 import fr.pantheonsorbonne.ufr27.entity.Teacher;
 
 public class AppConfiguration extends AbstractModule {
@@ -25,5 +26,11 @@ public class AppConfiguration extends AbstractModule {
 	@Provides
 	public Collection<Teacher> getTeachers() {
 		return new HashSet<Teacher>();
+	}
+
+	@Singleton
+	@Provides
+	public Collection<Student> getStudents() {
+		return new HashSet<Student>();
 	}
 }
