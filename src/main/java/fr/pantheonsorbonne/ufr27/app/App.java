@@ -11,8 +11,10 @@ import java.util.regex.Pattern;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import fr.pantheonsorbonne.ufr27.action.EducationAction;
 import fr.pantheonsorbonne.ufr27.configuration.AppConfiguration;
 import fr.pantheonsorbonne.ufr27.console.ConsoleEventParser;
+import fr.pantheonsorbonne.ufr27.exception.EducationException;
 
 
 /**
@@ -31,9 +33,13 @@ public class App {
 		ConsoleEventParser parser = injector.getInstance(ConsoleEventParser.class);
 
 		while (!(line = scanner.nextLine()).isEmpty()) {
-			
-			 parser.parse(line);
-			
+			EducationAction action;
+			try {
+				action = parser.parse(line);
+				action.perform();
+			} catch (EducationException e) {
+				LOG.log(Level.SEVERE, e.getMessage());
+			}
 
 		}
 		scanner.close();
