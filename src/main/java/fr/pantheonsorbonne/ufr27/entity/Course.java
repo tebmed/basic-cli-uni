@@ -25,9 +25,8 @@ public class Course extends EducationEntity {
 
 	public void starts() {
 		taught = true;
-
 	}
-
+	
 	public boolean isTaught() {
 		return this.taught;
 	}
