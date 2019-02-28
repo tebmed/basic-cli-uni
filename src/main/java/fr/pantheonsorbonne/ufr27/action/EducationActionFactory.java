@@ -17,4 +17,7 @@ public interface EducationActionFactory {
 			@Assisted("courseName") String courseName);
 
 	public StartCourseAction startCourse(@Assisted("courseName") String courseName);
+	
+	public KnowledgePrinterAction consoleKnowledgePrinterAction(@Assisted("entityName") String entityName,
+			@Assisted("courseName") String courseName);
 }
