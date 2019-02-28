@@ -23,4 +23,6 @@ public interface EducationActionFactory {
 
 	public StudentPassCourseAction StudentPassCourseAction(@Assisted("studentName") String studentName,
 			@Assisted("courseName") String courseName);
+
+	public ShowEntitiesAction consoleEntityPrinterAction(@Assisted("category") String category);
 }

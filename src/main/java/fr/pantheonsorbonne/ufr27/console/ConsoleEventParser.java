@@ -84,6 +84,13 @@ public class ConsoleEventParser {
 			}
 		}
 
+		{
+			Pattern pattern = Pattern.compile("^ls ([^ ]+)");
+			if ((matcher = pattern.matcher(command)).matches()) {
+				return factory.consoleEntityPrinterAction(matcher.group(1));
+			}
+		}
+
 		throw new InvalidCommandException(command);
 
 	}
