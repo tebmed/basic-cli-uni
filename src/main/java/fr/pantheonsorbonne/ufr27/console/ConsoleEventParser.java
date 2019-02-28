@@ -69,6 +69,13 @@ public class ConsoleEventParser {
 			}
 		}
 		
+		{
+			Pattern pattern = Pattern.compile("^([^ ]+) knows ([^ ]+)");
+			if ((matcher = pattern.matcher(command)).matches()) {
+				return factory.consoleKnowledgePrinterAction(matcher.group(1), matcher.group(2));
+			}
+		}
+		
 
 		throw new InvalidCommandException(command);
 
