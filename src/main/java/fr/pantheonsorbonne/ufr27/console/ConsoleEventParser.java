@@ -53,7 +53,7 @@ public class ConsoleEventParser {
 				return factory.registerCourseForTeacherAction(matcher.group(1), matcher.group(2));
 			}
 		}
-		
+
 		{
 			Pattern pattern = Pattern.compile("^([^ ]*) learns ([^ ]*)$");
 
@@ -61,21 +61,28 @@ public class ConsoleEventParser {
 				return factory.registerCourseForStudentAction(matcher.group(1), matcher.group(2));
 			}
 		}
-		
+
 		{
 			Pattern pattern = Pattern.compile("^start ([^ ]+)");
 			if ((matcher = pattern.matcher(command)).matches()) {
 				return factory.startCourse(matcher.group(1));
 			}
 		}
-		
+
 		{
 			Pattern pattern = Pattern.compile("^([^ ]+) knows ([^ ]+)");
 			if ((matcher = pattern.matcher(command)).matches()) {
 				return factory.consoleKnowledgePrinterAction(matcher.group(1), matcher.group(2));
 			}
 		}
-		
+
+		{
+
+			Pattern pattern = Pattern.compile("^([^ ]+) passes ([^ ]+)");
+			if ((matcher = pattern.matcher(command)).matches()) {
+				return factory.StudentPassCourseAction(matcher.group(1), matcher.group(2));
+			}
+		}
 
 		throw new InvalidCommandException(command);
 
