@@ -52,6 +52,13 @@ public class KnowledgePrinterAction implements EducationAction {
 			System.out.println("Yes, teacher " + teacher.get().getName() + " knows about " + this.courseName);
 			return;
 		}
+		
+		Optional<Student> student = this.students.stream().filter((Student s) -> s.getName().equals(this.entityName))
+				.findFirst();
+		if (student.isPresent() && student.get().isKnown(course.get().getName())) {
+			System.out.println("Yes, student " + student.get().getName() + " knows about " + this.courseName);
+			return;
+		}
 
 		System.out.println("no");
 	}
